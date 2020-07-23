@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
 
 @Component({
@@ -20,6 +20,8 @@ export class SearchComponent implements OnInit {
     });
 
     // write a function that calls changeCountryName upon value change in the form
+
   }
+
 
 }

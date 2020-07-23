@@ -34,8 +34,11 @@ export class ListComponent implements OnInit {
   constructor(private service: DataService) { }
 
   ngOnInit() {
+
     this.service.currentCountryName.subscribe(name => {
       // complete this function which searches the countries and adds them to searchCountriesList
+      // the search criteria: country must start with the entered string, case INSENSITIVE
+  
     });
 
   }
