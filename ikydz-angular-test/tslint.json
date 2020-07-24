@@ -13,7 +13,6 @@
     "deprecation": {
       "severity": "warning"
     },
-    "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [
@@ -44,6 +43,7 @@
       true,
       140
     ],
+    "ordered-imports": false,
     "member-ordering": [
       true,
       {
@@ -72,6 +72,9 @@
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
     "no-var-requires": false,
+    "object-literal-sort-keys": [
+      false
+    ],
     "object-literal-key-quotes": [
       true,
       "as-needed"
@@ -85,6 +88,11 @@
         "always"
       ]
     },
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",
@@ -116,7 +124,8 @@
       "options": [
         "ban-keywords",
         "check-format",
-        "allow-pascal-case"
+        "allow-pascal-case",
+        "allow-leading-underscore"
       ]
     },
     "whitespace": {
