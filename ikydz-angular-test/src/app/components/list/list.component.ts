@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-
-const DEFAULT_SEARCH_STRING = '';
+import { DEFAULT_SEARCH_STRING, UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-list-component',
@@ -33,14 +32,13 @@ export class ListComponent implements OnInit {
   // add the countries to be shown to this array
   public searchCountriesList: string[] = [];
 
-  constructor(private service: DataService,
-  ) {
+  constructor(private service: DataService) {
   }
 
   public ngOnInit(): void {
-    this.service.currentCountryName.subscribe((name: string) => {
-      // complete this function which searches the countries and adds them to searchCountriesList
-      // the search criteria: country must start with the entered string, case INSENSITIVE
+    this.service.currentCountryName.subscribe(async (name: string) => {
+      this.searchString = name;
+      this.searchCountriesList = this.countries.filter(UtilsService.filterNames(name));
     });
   }
 }
