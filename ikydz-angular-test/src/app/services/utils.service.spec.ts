@@ -10,10 +10,6 @@ describe('UtilsService', () => {
     service = TestBed.inject(UtilsService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
   it('should be converted upper case string with spaces to lowercase without white spaces', () => {
     const convertedString = UtilsService.convertNameToLowerCaseWithTrim(' Some String ');
     expect(convertedString).toEqual('some string');

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
 
   public initSearchForm(): void {
     this.searchForm = this._fb.group({
-      searchCountry: [null]
+      searchCountry: [null, Validators.required]
     });
   }
 
