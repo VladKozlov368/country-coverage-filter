@@ -10,8 +10,8 @@ describe('DataService', () => {
   });
 
   it('should use an observable to add values', inject([DataService], (service: DataService) => {
-    spyOn(service['countryNameSource'], 'next').and.callThrough();
+    spyOn(service.countryNameSource, 'next').and.callThrough();
     service.changeCountryName('India');
-    expect(service['countryNameSource'].next).toHaveBeenCalled();
+    expect(service.countryNameSource.next).toHaveBeenCalled();
   }));
 });
