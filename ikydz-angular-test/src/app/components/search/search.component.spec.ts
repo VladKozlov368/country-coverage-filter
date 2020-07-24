@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { async, TestBed, inject } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search.component';
-import { DataService } from '../data.service';
+import { DataService } from '../../services/data.service';
 
 describe('SearchComponent', () => {
 
@@ -16,19 +16,19 @@ describe('SearchComponent', () => {
   }));
 
   it('should not be valid if search box is empty', () => {
-    let fixture = TestBed.createComponent(SearchComponent);
-    let search = fixture.componentInstance;
+    const fixture = TestBed.createComponent(SearchComponent);
+    const search = fixture.componentInstance;
     fixture.detectChanges();
-    search.searchForm.controls['searchCountry'].setValue('');
-    expect(search.searchForm.controls['searchCountry'].valid).toBeFalsy();
+    search.searchForm.controls.searchCountry.setValue('');
+    expect(search.searchForm.controls.searchCountry.valid).toBeFalsy();
   });
 
   it('should trigger the changeCountryName function', async(inject([DataService], (service: DataService) => {
-    let fixture = TestBed.createComponent(SearchComponent);
-    let search = fixture.componentInstance;
+    const fixture = TestBed.createComponent(SearchComponent);
+    const search = fixture.componentInstance;
     fixture.detectChanges();
-    spyOn(search.service, "changeCountryName").and.callThrough();
-    search.searchForm.controls['searchCountry'].setValue("Uk");
+    spyOn(search.service, 'changeCountryName').and.callThrough();
+    search.searchForm.controls.searchCountry.setValue('Uk');
     expect(search.service.changeCountryName).toHaveBeenCalled();
   })));
 
