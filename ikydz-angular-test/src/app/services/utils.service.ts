@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+export const DEFAULT_SEARCH_STRING = '';
+
 @Injectable({
   providedIn: 'root'
 })
