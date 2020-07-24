@@ -27,9 +27,13 @@ describe('UtilsService', () => {
   });
 
   it('should check if the name filter is working properly', () => {
-    const names = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola'];
-    expect(names.filter(UtilsService.filterNames('')).length === 5).toBeTrue();
-    expect(names.filter(UtilsService.filterNames('algeria')).length === 1).toBeTrue();
+    const names = ['Antigua & Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Barbados'
+      , 'Belarus', 'Bulgaria', 'Denmark', 'Faroe Islands', 'Gibraltar', 'Hungary', 'Madagascar'
+      , 'Nicaragua', 'Paraguay', 'Qatar', 'San Marino', 'Saudi Arabia', 'United Arab Emirates'];
+
+    expect(names.filter(UtilsService.filterNames('')).length === 18).toBeTrue();
+    expect(names.filter(UtilsService.filterNames('aruba')).length === 1).toBeTrue();
     expect(names.filter(UtilsService.filterNames('another')).length === 0).toBeTrue();
+    expect(names.filter(UtilsService.filterNames('ar'))).toEqual(['Argentina', 'Armenia', 'Aruba']);
   });
 });

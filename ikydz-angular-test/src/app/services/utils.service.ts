@@ -23,7 +23,7 @@ export class UtilsService {
    */
   public static isNameContainSearchString(name: string, searchString: string): boolean {
     return UtilsService.convertNameToLowerCaseWithTrim(name)
-      .indexOf(UtilsService.convertNameToLowerCaseWithTrim(searchString)) >= 0;
+      .startsWith(UtilsService.convertNameToLowerCaseWithTrim(searchString));
   }
 
   /**
