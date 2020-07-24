@@ -9,21 +9,26 @@ import { DataService } from '../../services/data.service';
 })
 export class SearchComponent implements OnInit {
 
-  public searchForm?: FormGroup;
+  public searchForm: FormGroup;
 
   constructor(public service: DataService,
-              private _fb: FormBuilder,
-  ) {
+              private _fb: FormBuilder) {
   }
 
   public ngOnInit(): void {
-    // add corresponding validators
+    this.initSearchForm();
+    this.initSearchFormListeners();
+  }
+
+  public initSearchForm(): void {
     this.searchForm = this._fb.group({
       searchCountry: [null]
     });
+  }
 
-    this.searchForm.get('searchCountry').valueChanges.subscribe(val => {
-      console.log(val);
+  public initSearchFormListeners(): void {
+    this.searchForm.get('searchCountry').valueChanges.subscribe((country: string) => {
+      this.service.changeCountryName(country);
     });
   }
 }
